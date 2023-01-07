@@ -1,6 +1,5 @@
 local isDiscovered = false
 local inProgress = false
-local isUserLoggedIn = false
 local isInsideZone = false
 blips_table = {}
 
