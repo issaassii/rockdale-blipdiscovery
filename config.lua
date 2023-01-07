@@ -17,12 +17,12 @@ Config.BlipScale = 0.8
 -- List of blips
 Config.Blips = {
 	{
-		initialLabel = "Undiscovered Blip", 			 -- blip name BEFORE discovery
+		initialLabel = "Undiscovered Blip", 	 -- blip name BEFORE discovery
 		discoveredLabel = "Discovered Blip", 	 -- blip name AFTER discovery
-		initialColor = 0, 						 -- blip color BEFORE discovery
-		discoveredColor = 0, 					 -- blip color AFTER discovery
-		initialSprite = 456, 					 -- blip sprite BEFORE disocovery
-		discoveredSprite = 310,					 -- blip sprite AFTER discovery
+		initialColor = 0, 			 -- blip color BEFORE discovery
+		discoveredColor = 0, 			 -- blip color AFTER discovery
+		initialSprite = 456, 			 -- blip sprite BEFORE disocovery
+		discoveredSprite = 310,			 -- blip sprite AFTER discovery
 		coords = vector3(2239.62, 5071.91, 46.9) -- blip location (tip: /vector3)
 	},
 }
