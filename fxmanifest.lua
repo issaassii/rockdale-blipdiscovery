@@ -2,8 +2,8 @@ fx_version 'cerulean'
 game 'gta5'
 
 author 'Owl#7402'
-description 'Blip/Region Discovery System for QB-Core'
-version '1.0'
+description 'Blip/Region Discovery System for QB-Core & ESX'
+version '1.1'
 
 client_scripts {
 	'config.lua',
