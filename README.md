@@ -30,5 +30,5 @@ Trying to reset blips while near a blip (causes issues otherwise)<br/>
 - Edit config.lua
 
 ## Changelog
-- **1.0**: Initial release
-- **1.1**: Added ESX compatibility & performance adjustments
+- **1.0.0**: Initial release
+- **1.1.0**: Added ESX compatibility & performance adjustments
