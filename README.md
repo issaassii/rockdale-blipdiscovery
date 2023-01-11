@@ -44,5 +44,5 @@ Originally a script made for my [server](https://discord.com/invite/GpttmrUPgk) 
 	- Performance improvements
 
 ## Notes
-**Updating:** Use the new config.lua and copy & paste your configured blips to the new config.lua
+**Updating:** Use a fresh install of the script, open your old config.lua, and copy paste "Config.Blips" table over to the new config.
 Every blip has to have a unique discovered label in the config or it will be discovered if another blip with the same name is.
