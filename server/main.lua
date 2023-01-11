@@ -36,10 +36,5 @@ RegisterNetEvent('rockdale-blipdiscovery:SaveBlips', function(DiscoveredBlips)
 end)
 
 RegisterNetEvent('rockdale-blipdiscovery:ResetPersonalBlips', function()
-	-- local src = source
-	-- local CitizenID = GetPlayerCitizenID(src)
-	-- MySQL.update('UPDATE `player_blips` SET `discovered_blips` = ? WHERE `characterid` = ?', {json.encode({}), CitizenID}, function()
-	-- 	print("Reset discovered blips for "..CitizenID)
-	-- end)
 	TriggerClientEvent("rockdale-blipdiscovery:UpdatePlayerBlipsTable", src, json.decode("[]"))
 end)
