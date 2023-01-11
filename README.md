@@ -24,7 +24,7 @@ Originally a script made for my [server](https://discord.com/invite/GpttmrUPgk) 
 - [oxmysql](https://github.com/overextended/oxmysql)
 
 ## Download
-- [GitHub](https://github.com/jackwemble/rockdale-blipdiscovery)
+- Download from [releases](https://github.com/JackWemble/rockdale-blipdiscovery/releases/tag/v1.2.0) or you may have bugs
 
 ## Installation
 - Import ```rockdale-blipdiscovery.sql``` into your database
