@@ -1,60 +1,45 @@
 if Config.Framework == "qb-core" then
-	isQB = true
+	IsQB = true
 	QBCore = exports['qb-core']:GetCoreObject()
 else
-	isQB = false
+	IsQB = false
 	ESX = exports['es_extended']:getSharedObject()
 end
 
 local function GetPlayerCitizenID(src)
 	local src = source
-	if isQB then
+	if IsQB then
 		local Player = QBCore.Functions.GetPlayer(src)
 		return Player.PlayerData.citizenid
 	else
 		local Player = ESX.GetPlayerFromId(src)
 		return Player.getIdentifier()
 	end
-end 
+end
 
-RegisterNetEvent('rockdale-blipdiscover:addToDB', function()
+RegisterNetEvent('rockdale-blipdiscovery:InitializePlayer', function()
 	local src = source
 	local CitizenID = GetPlayerCitizenID(src)
-	MySQL.insert('INSERT IGNORE INTO `player_blips` (`characterid`, `discovered_blips`) VALUES (?, ?)', {CitizenID, " "}, function()
+	MySQL.insert('INSERT IGNORE INTO `player_blips` (`characterid`, `discovered_blips`) VALUES (?, ?)', {CitizenID, "[]"}, function()
 		print(CitizenID.." was initialized successfully")
+		local DiscoveredBlipsTable = MySQL.query.await('SELECT `discovered_blips` FROM `player_blips` WHERE characterid = ?', {CitizenID})
+		TriggerClientEvent("rockdale-blipdiscovery:UpdatePlayerBlipsTable", src, json.decode(DiscoveredBlipsTable[1]["discovered_blips"]))
 	end)
 end)
 
-RegisterNetEvent('rockdale-blipdiscover:blipDiscovered', function(blip)
+RegisterNetEvent('rockdale-blipdiscovery:SaveBlips', function(DiscoveredBlips)
 	local src = source
 	local CitizenID = GetPlayerCitizenID(src)
-	MySQL.update('UPDATE `player_blips` SET `discovered_blips` = CONCAT(`discovered_blips`, ?) WHERE `discovered_blips` NOT LIKE ? AND `characterid` = ?', {blip.." ", "%`"..blip.."`%", CitizenID}, function()
-		print(CitizenID.." discovered a blip")
+	MySQL.update('UPDATE `player_blips` SET `discovered_blips` = ? WHERE `characterid` = ?', {DiscoveredBlips, CitizenID}, function()
+		-- print("Saved discovered blips for "..CitizenID) -- Uncomment if you want to log blip saves
 	end)
 end)
 
-RegisterNetEvent('rockdale-blipdiscover:isBlipDiscovered', function(blip)
-	local src = source
-	local CitizenID = GetPlayerCitizenID(src)
-	local isDiscovered = MySQL.query.await('SELECT * FROM `player_blips` WHERE characterid = ? AND discovered_blips LIKE ?', {CitizenID, blip})
-	if not next(isDiscovered) then
-		TriggerClientEvent("rockdale-blipdiscover:isBlipDiscoveredBool", src, false)
-	else
-		TriggerClientEvent("rockdale-blipdiscover:isBlipDiscoveredBool", src, true)
-	end
-end)
-
-RegisterNetEvent('rockdale-blipdiscover:ResetPersonalBlips', function()
-	local source = source
-	local CitizenID = GetPlayerCitizenID(source)
-	MySQL.update('UPDATE `player_blips` SET `discovered_blips` = ? WHERE `characterid` = ?', {" ", CitizenID}, function()
-		print("Reset discovered blips for "..CitizenID)
-	end)
-	TriggerClientEvent("rockdale-blipdiscover:ClearAllBlips", source)
-	TriggerClientEvent("rockdale-blipdiscover:createBlips", source)
-	if isQB then
-		TriggerClientEvent("QBCore:Notify", source, "Reset discovered blips", "success", 7500)
-	else
-		TriggerClientEvent("ESX:Notify", source, "success", 7500, "Reset discovered blips")
-	end
+RegisterNetEvent('rockdale-blipdiscovery:ResetPersonalBlips', function()
+	-- local src = source
+	-- local CitizenID = GetPlayerCitizenID(src)
+	-- MySQL.update('UPDATE `player_blips` SET `discovered_blips` = ? WHERE `characterid` = ?', {json.encode({}), CitizenID}, function()
+	-- 	print("Reset discovered blips for "..CitizenID)
+	-- end)
+	TriggerClientEvent("rockdale-blipdiscovery:UpdatePlayerBlipsTable", src, json.decode("[]"))
 end)
