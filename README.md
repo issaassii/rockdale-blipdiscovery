@@ -49,6 +49,6 @@ Originally a script made for my [server](https://discord.com/invite/GpttmrUPgk) 
 
 **Updating from 1.1 and under to 1.2+:** Use a fresh install of the script, open your old config.lua, and copy paste "Config.Blips" table over to the new config.
 
-**Updating from 1.2 to 1.3**: Run the query ```sql DROP DATABASE player_blips``` and then reimport the database file
+**Updating from 1.2 to 1.3**: Run the query ```DROP TABLE player_blips``` and then reimport the database file
 
 Every blip has to have unique coords in the config or it will cause issues with the initial blips.
