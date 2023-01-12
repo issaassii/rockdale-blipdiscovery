@@ -3,7 +3,7 @@ game 'gta5'
 
 author 'Owl#7402'
 description 'Blip/Region Discovery System for QB-Core & ESX'
-version '1.2.0'
+version '1.3.0'
 
 client_scripts {
 	'config.lua',

@@ -13,7 +13,7 @@ if Config.CheckForUpdates then
 				print("^1----------------------------------------------------------------------------------^7")
 			elseif tonumber(CurrentVersion) > tonumber(responseText) then
 				print("\n^3----------------------------------------------------------------------------------^7")
-				print(ResourceName.."\nLatest version: ^2"..responseText.."^7Installed version: ^3"..CurrentVersion.."^7 (developer copy)")
+				print(ResourceName.."\nLatest version: ^2"..responseText.."^7\nInstalled version: ^3"..CurrentVersion.."^7 (developer copy)")
 				print("^3----------------------------------------------------------------------------------^7")
 			else
 				print("\n^2----------------------------------------------------------------------------------^7")

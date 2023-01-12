@@ -28,11 +28,11 @@ Config.BlipScale = 0.8
 Config.Blips = {
     {
         initialLabel = "Example",	 	 		 -- blip name BEFORE discovery
-        discoveredLabel = "Discovered Example",  -- blip name AFTER discovery   [THIS HAS TO BE UNIQUE]
+        discoveredLabel = "Discovered Example",  -- blip name AFTER discovery
         initialColor = 0, 						 -- blip color BEFORE discovery
         discoveredColor = 0, 					 -- blip color AFTER discovery
         initialSprite = 456, 					 -- blip sprite BEFORE disocovery
         discoveredSprite = 310,					 -- blip sprite AFTER discovery
-        coords = vector3(2239.62, 5071.91, 46.9) -- blip location (tip: /vector3 if using qb-core)
+        coords = vector3(2239.62, 5071.91, 46.9) -- blip location (tip: /vector3 if using qb-core) [THIS HAS TO BE UNIQUE]
     },
 }

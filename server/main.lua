@@ -38,3 +38,7 @@ end)
 RegisterNetEvent('rockdale-blipdiscovery:ResetPersonalBlips', function()
 	TriggerClientEvent("rockdale-blipdiscovery:UpdatePlayerBlipsTable", src, json.decode("[]"))
 end)
+
+AddEventHandler("playerDropped", function()
+	TriggerClientEvent("rockdale-blipdiscovery:PlayerDropped", source)
+end)

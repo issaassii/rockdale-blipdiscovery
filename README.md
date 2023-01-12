@@ -24,7 +24,7 @@ Originally a script made for my [server](https://discord.com/invite/GpttmrUPgk) 
 - [oxmysql](https://github.com/overextended/oxmysql)
 
 ## Download
-- Download from [releases](https://github.com/JackWemble/rockdale-blipdiscovery/releases/tag/v1.2.0) or you may have bugs
+- Download from [releases](https://github.com/JackWemble/rockdale-blipdiscovery/releases/tag/v1.3.0) or you may have bugs
 
 ## Installation
 - Import ```rockdale-blipdiscovery.sql``` into your database
@@ -42,7 +42,13 @@ Originally a script made for my [server](https://discord.com/invite/GpttmrUPgk) 
 	- Added version checker
 	- Updated license
 	- Performance improvements
+- **1.3**:
+	- The unique identifier is now the vector of the blip, therefore, you can have blips with duplicate initial and discovered labels
 
 ## Notes
-**Updating:** Use a fresh install of the script, open your old config.lua, and copy paste "Config.Blips" table over to the new config.
-Every blip has to have a unique discovered label in the config or it will be discovered if another blip with the same name is.
+
+**Updating from 1.1 and under to 1.2+:** Use a fresh install of the script, open your old config.lua, and copy paste "Config.Blips" table over to the new config.
+
+**Updating from 1.2 to 1.3**: Run the query ```sql DROP DATABASE player_blips``` and then reimport the database file
+
+Every blip has to have unique coords in the config or it will cause issues with the initial blips.
