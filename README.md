@@ -1,5 +1,5 @@
 # Blip Discovery (Rewritten)
-Originally a script made for my [server](https://discord.com/invite/GpttmrUPgk) that allows players to discover areas within the map through blip changes for QB-Core & ESX.
+Originally a script made for my server that allows players to discover areas within the map through blip changes for QB-Core & ESX.
 
 ## Features
 - A blip will change and remain changed when a player comes within a predefined range of that blip. Blip changes include sprite, color, and text. Check screenshots for more.
